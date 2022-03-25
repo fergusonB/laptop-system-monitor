@@ -365,12 +365,12 @@ var app = (function () {
     			a.textContent = "Svelte tutorial";
     			t6 = text(" to learn how to build Svelte apps.");
     			attr_dev(h1, "class", "svelte-1tky8bj");
-    			add_location(h1, file, 4, 1, 54);
+    			add_location(h1, file, 7, 1, 136);
     			attr_dev(a, "href", "https://svelte.dev/tutorial");
-    			add_location(a, file, 5, 14, 91);
-    			add_location(p, file, 5, 1, 78);
+    			add_location(a, file, 8, 14, 173);
+    			add_location(p, file, 8, 1, 160);
     			attr_dev(main, "class", "svelte-1tky8bj");
-    			add_location(main, file, 3, 0, 46);
+    			add_location(main, file, 6, 0, 128);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -411,7 +411,9 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
+    	const invoke = window.__TAURI__.invoke;
     	let { name } = $$props;
+    	invoke('my_custom_command');
     	const writable_props = ['name'];
 
     	Object.keys($$props).forEach(key => {
@@ -422,7 +424,7 @@ var app = (function () {
     		if ('name' in $$props) $$invalidate(0, name = $$props.name);
     	};
 
-    	$$self.$capture_state = () => ({ name });
+    	$$self.$capture_state = () => ({ invoke, name });
 
     	$$self.$inject_state = $$props => {
     		if ('name' in $$props) $$invalidate(0, name = $$props.name);
