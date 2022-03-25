@@ -1,5 +1,10 @@
 <script lang="ts">
+	//@ts-ignore
+	const invoke = window.__TAURI__.invoke
+	
 	export let name: string;
+
+	invoke('my_custom_command')
 </script>
 
 <main>
