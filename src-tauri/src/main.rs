@@ -3,22 +3,21 @@
   windows_subsystem = "windows"
 )]
 
-use sysinfo::{System, SystemExt};
+mod get_data;
 
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![my_custom_command])
+    .invoke_handler(tauri::generate_handler![
+
+      get_data::total_memory
+      
+      ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
+
 }
 
-#[tauri::command]
-fn my_custom_command() {
-  let mut sys = System::new_all();
 
-// First we update all information of our `System` struct.
-sys.refresh_all();
 
-  // print all system information
-  println!("{:#?}", sys.processors());
-}
+
+
