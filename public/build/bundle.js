@@ -1,5 +1,5 @@
 
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35733/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35739/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 var app = (function () {
     'use strict';
 
@@ -365,12 +365,12 @@ var app = (function () {
     			a.textContent = "Svelte tutorial";
     			t6 = text(" to learn how to build Svelte apps.");
     			attr_dev(h1, "class", "svelte-1tky8bj");
-    			add_location(h1, file, 7, 1, 136);
+    			add_location(h1, file, 7, 1, 155);
     			attr_dev(a, "href", "https://svelte.dev/tutorial");
-    			add_location(a, file, 8, 14, 173);
-    			add_location(p, file, 8, 1, 160);
+    			add_location(a, file, 8, 14, 192);
+    			add_location(p, file, 8, 1, 179);
     			attr_dev(main, "class", "svelte-1tky8bj");
-    			add_location(main, file, 6, 0, 128);
+    			add_location(main, file, 6, 0, 147);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -413,7 +413,7 @@ var app = (function () {
     	validate_slots('App', slots, []);
     	const invoke = window.__TAURI__.invoke;
     	let { name } = $$props;
-    	invoke('my_custom_command');
+    	invoke('total_memory').then(mem => alert(mem));
     	const writable_props = ['name'];
 
     	Object.keys($$props).forEach(key => {
