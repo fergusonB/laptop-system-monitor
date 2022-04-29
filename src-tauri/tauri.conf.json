@@ -55,7 +55,7 @@
     },
     "windows": [
       {
-        "title": "Linux Laptop System Monitor",
+        "title": "Laptop System Monitor",
         "width": 800,
         "height": 600,
         "resizable": true,
