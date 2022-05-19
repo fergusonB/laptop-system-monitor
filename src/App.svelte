@@ -1,19 +1,24 @@
 <script lang="ts">
+
+    //@ts-ignore
+    const invoke = window.__TAURI__.invoke;
+
+	let data = {};
+
+	setInterval(async ()=>{
+			data = JSON.parse(await invoke("main"))
+		},1000)
+	
 	
 	import Memory from './components/Memory.svelte'
 
-	const size = {
-		'KB' : 1,
-		'MB' : 1000,
-		'GB' :  1000000,
-		'TB' : 1000000000,
-	}
+
 
 </script>
 
 <main>
 
-	<Memory />
+	<Memory {data}/>
 
 	
 

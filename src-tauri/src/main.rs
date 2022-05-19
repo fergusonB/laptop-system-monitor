@@ -6,12 +6,12 @@
 mod get_data;
 
 fn main() {
+
+
   tauri::Builder::default()
     .invoke_handler(tauri::generate_handler![
 
-      get_data::total_memory,
-      get_data::used_memory,
-      get_data::free_memory,
+     get_data::main,
       
       ])
     .run(tauri::generate_context!())

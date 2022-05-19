@@ -1,17 +1,18 @@
 
 use sysinfo::{System, SystemExt};
 
+#[tauri::command]
+pub fn main ()->String {
+    let mut sys = System::new_all();
+    sys.refresh_all();
+    let total_memory = sys.total_memory();
+    let used_memory = sys.used_memory();
+    let free_memory = sys.free_memory();
 
-// Memory
-#[tauri::command]
-pub fn total_memory() -> String{
-  System::new_all().total_memory().to_string().into()
+    //return json of variables
+    let json = format!("{{\"total_memory\":{},\"used_memory\":{},\"free_memory\":{}}}", total_memory, used_memory, free_memory);
+    json.into()
+
 }
-#[tauri::command]
-pub fn used_memory() -> String{
-  System::new_all().used_memory().to_string().into()
-}
-#[tauri::command]
-pub fn free_memory() -> String{
-  System::new_all().available_memory().to_string().into()
-}
+
+
